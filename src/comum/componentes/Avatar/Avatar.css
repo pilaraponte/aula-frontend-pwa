@@ -1,0 +1,8 @@
+.avatar_root{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--cor-fundo-padrao);
+    text-align: center;
+
+}
