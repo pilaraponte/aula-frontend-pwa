@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .cabecalho_root {
     height: 48px;
     background-color: var(--cor-primaria);
@@ -11,3 +12,9 @@
     padding-bottom: 0;
     padding-left: 16px; */
   }
+=======
+.cabecalho_root{
+    height: 48px;
+    background-color: var(--cor-primaria);
+}
+>>>>>>> bd0b5718edf035bf3a8cdcedde8a2d226201852e

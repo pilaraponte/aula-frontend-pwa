@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .principal_root {
     background-color: var(--cor-fundo-padrao);
     padding: 16px;
@@ -12,3 +13,8 @@
     align-items: center;
     gap: 8px;
   }
+=======
+.principal_root{
+    background-color: var(--cor-fundo-padrao);
+}
+>>>>>>> bd0b5718edf035bf3a8cdcedde8a2d226201852e

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './BotaoCustomizado.css';
 
 const BotaoCustomizado = ({ cor, aoClicar, children }) => {
@@ -24,5 +25,13 @@ const BotaoCustomizado = ({ cor, aoClicar, children }) => {
     </button>
   );
 };
+=======
+
+const BotaoCustomizado = (props) =>{
+
+    return <button>{props.children}</button>
+
+}
+>>>>>>> bd0b5718edf035bf3a8cdcedde8a2d226201852e
 
 export default BotaoCustomizado;

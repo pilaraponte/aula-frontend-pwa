@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .rodape_root {
     height: 48px;
     background-color: var(--cor-primaria-clara);
@@ -5,3 +6,13 @@
     justify-content: center;
     align-items: center;
   }
+=======
+.rodape_root{
+
+    display: flex;
+    height: 45px;
+    background-color: var(--cor-primaria-clara);
+    justify-content: center;
+    align-items: center;
+}
+>>>>>>> bd0b5718edf035bf3a8cdcedde8a2d226201852e
