@@ -3,11 +3,12 @@ import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCust
 import Principal from "../../comum/componentes/Principal/Principal";
 import "./PaginaInicial.css";
 
+
 const PaginaInicial = () => {
   const navigate = useNavigate();
 
   return (
-    <Principal titulo="Lista de Exercícios II">
+    <Principal titulo="Pagina Inicial">
       <BotaoCustomizado
         cor="secundaria"
         aoClicar={() => navigate("/botao-contador")}
@@ -32,6 +33,15 @@ const PaginaInicial = () => {
       >
         Lista de Tarefas
       </BotaoCustomizado>
+
+       <BotaoCustomizado
+        cor="primaria"
+        aoClicar={() => navigate("/desafio-componentes")}
+      >
+        Desafio Componentes
+      </BotaoCustomizado>
+      
+
     </Principal>
   );
 };
