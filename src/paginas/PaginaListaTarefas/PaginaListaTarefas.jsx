@@ -10,7 +10,7 @@ const PaginaListaTarefas = () => {
 
   const adicionarNaLista = () => {
     if (descricao && descricao.trim()) {
-      tarefas.push(descricao);
+      tarefas.push({descricao, feita: false});
       setTarefas([...tarefas]);
     } else {
       alert("Preencha o campo Descrição");
@@ -37,23 +37,24 @@ const PaginaListaTarefas = () => {
               if (e.key === "Enter") {
                 adicionarNaLista();
               }
-            }}
-          />
-          <BotaoCustomizado aoClicar={adicionarNaLista}>
-            <FaCheck size={24} />
-          </BotaoCustomizado>
+            }} 
+          />  <FaCheck size={24} onClick={adicionarNaLista} />
         </div>
 
         <ul>
           {tarefas.map((item, index) => {
             return (
               <li key={index}>
-                {item}
-                <FaTrashCan color="grey" onClick={() => removerDaLista(index)} />
+                {item}   <FaTrashCan color="grey" onClick={() => removerDaLista(index)} />
               </li>
             );
           })}
         </ul>
+        {tarefas.length === 0 &&(
+          <span className="'pagina-lista-tarefas_mensagem-vazia">
+            Não tem tarefa pra listar.
+          </span>
+        )}
       </Principal>
     </div>
   );
