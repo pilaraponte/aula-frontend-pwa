@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
-import "./PaginaInicial.css";
 import Principal from "../../comum/componentes/Principal/Principal";
 import "./PaginaInicial.css";
 
@@ -20,7 +19,7 @@ const PaginaInicial = () => {
         cor="primaria"
         aoClicar={() => navigate("/botao-incremenar-decrementar")}
       >
-        Botão Incrementar Decrementar
+        Botão Incrementar Decrementar_
       </BotaoCustomizado>
       <BotaoCustomizado
         cor="primaria"
