@@ -12,7 +12,7 @@ const PaginaDesafioComponentes = () => {
  
   return (
 
-    <Principal titulo="Desafio de Componentes" voltarPara="/">
+    <Principal titulo="Desafio dos Componentes" voltarPara="/">
 
       <h3>
         Cria um componente chamado MostrarSoma que deve receber dois números como propriedade e mostrar a soma dos números conforme exemplo: A soma de 11 + 12 é: 23
