@@ -7,7 +7,7 @@ const PaginaInicial = () => {
   const navigate = useNavigate();
 
   return (
-    <Principal titulo="Lista de Exercícios II">
+    <Principal titulo="Página Inicial">
       <BotaoCustomizado
         cor="secundaria"
         aoClicar={() => navigate("/botao-contador")}
