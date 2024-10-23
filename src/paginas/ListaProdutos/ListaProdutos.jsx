@@ -3,7 +3,7 @@ import "./ListaProdutos.css";
 const ListaProdutos = () => {
   const produtos = [
     {
-      nome: "Smartphone Samsung",
+      nome: "Smartphone Samsung_",
       preco: 2999,
       cores: ["#29d8d5", "#252a34", "#fc3766"],
     },
