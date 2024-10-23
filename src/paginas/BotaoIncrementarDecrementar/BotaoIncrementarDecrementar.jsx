@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
 import Principal from "../../comum/componentes/Principal/Principal";
-
 const BotaoIncrementarDecrementar = () => {
   const [numero, setNumero] = useState(0);
 
