@@ -18,13 +18,13 @@ const PaginaInicial = () => {
         cor="primaria"
         aoClicar={() => navigate("/botao-incremenar-decrementar")}
       >
-        Botão Incrementar Decrementar_
+        Botão Incrementar Decrementar
       </BotaoCustomizado>
       <BotaoCustomizado
         cor="primaria"
         aoClicar={() => navigate("/lista-produtos")}
       >
-        Lista Produtos_
+        Lista Produtos
       </BotaoCustomizado>
       <BotaoCustomizado
         cor="secundaria"

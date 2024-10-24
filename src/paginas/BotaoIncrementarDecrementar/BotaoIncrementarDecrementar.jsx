@@ -17,7 +17,7 @@ const BotaoIncrementarDecrementar = () => {
     <div>
       <Principal titulo="Botão Incrementador e Decrementador" voltarPara="/">
         <BotaoCustomizado aoClicar={decrementar} cor="primaria">
-          Menos Um_
+          Menos Um
         </BotaoCustomizado>
         <h1>O número é: {numero}</h1>
         <BotaoCustomizado aoClicar={incrementar} cor="secundaria">
