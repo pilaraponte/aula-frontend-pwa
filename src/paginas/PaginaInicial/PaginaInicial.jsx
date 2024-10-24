@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
-import Principal from "../../comum/componentes/principal2/Principal";
+import Principal from "../../comum/componentes/Principal/Principal";
 import "./PaginaInicial.css";
 
 const PaginaInicial = () => {
