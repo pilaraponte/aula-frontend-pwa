@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Cabecalho from "./comum/componentes/cabecalho/Cabecalho";
-import Rodape from "./comum/componentes/rodape/Rodape";
+import Cabecalho from "./comum/componentes/Cabecalho/Cabecalho";
+import Rodape from "./comum/componentes/Rodape/Rodape";
 import PaginaInicial from "./paginas/PaginaInicial/PaginaInicial";
 import ListaProdutos from "./paginas/ListaProdutos/ListaProdutos";
 import BotaoContador from "./paginas/BotaoContador/BotaoContador";
@@ -30,11 +30,10 @@ const router = createBrowserRouter([
     path: "/lista-tarefas",
     element: <PaginaListaTarefas />,
   },
-    {
+  {
     path: "/desafio-componentes",
     element: <PaginaDesafioComponentes />,
   },
-
 ]);
 
 function App() {
