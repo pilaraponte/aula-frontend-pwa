@@ -8,6 +8,8 @@ import BotaoContador from "./paginas/BotaoContador/BotaoContador";
 import BotaoIncrementarDecrementar from "./paginas/BotaoIncrementarDecrementar/BotaoIncrementarDecrementar";
 import PaginaListaTarefas from "./paginas/PaginaListaTarefas/PaginaListaTarefas";
 import PaginaDesafioComponentes from "./paginas/PaginaDesafioComponentes/PaginaDesafioComponentes";
+import PaginaListaClientes from "./paginas/PaginaListaClientes/PaginaListaClientes";
+import PaginaCadastroClientes from "./paginas/PaginaCadastroClientes/PaginaCadastroClientes";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     path: "/desafio-componentes",
     element: <PaginaDesafioComponentes />,
+  },
+  {
+    path: "/lista-clientes",
+    element: <PaginaListaClientes />,
+  },
+  {
+    path: "/cadastro-clientes",
+    element: <PaginaCadastroClientes />,
   },
 ]);
 

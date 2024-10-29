@@ -39,6 +39,13 @@ const PaginaInicial = () => {
       >
         Desafio Componentes
       </BotaoCustomizado>
+
+      <BotaoCustomizado
+        cor="secundaria"
+        aoClicar={() => navigate("/lista-clientes")}
+      >
+        Lista de Clientes
+      </BotaoCustomizado>
     </Principal>
   );
 };
