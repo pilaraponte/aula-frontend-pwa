@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     element: <PaginaListaClientes />,
   },
   {
-    path: "/cadastro-clientes",
+    path: "/cadastro-clientes/:id?",
     element: <PaginaCadastroClientes />,
   },
 ]);
