@@ -1,10 +1,10 @@
 import Principal from "../../comum/componentes/Principal/Principal";
 import { Link } from "react-router-dom";
-import ServicoCliente from "../../comum/servicos/ServicoCliente";
 import { useEffect, useState } from "react";
 import "./PaginaListaClientes.css";
 import { FaPencil, FaTrash } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import ServicoCliente from "../../comum/servicos/ServicoCliente";
 
 const servicoCliente = new ServicoCliente();
 
@@ -21,6 +21,12 @@ const PaginaListaClientes = () => {
     navigate(`/cadastro-clientes/${idCliente}`);
   };
 
+  const excluir = (idCliente) => {
+    if (confirm("Tem certeza que deseja excluir?")) {
+      servicoCliente.excluirCliente(idCliente);
+    }
+  };
+
   return (
     <Principal titulo="Lista de Clientes" voltarPara="/">
       <Link to="/cadastro-clientes">Novo</Link>
@@ -29,14 +35,18 @@ const PaginaListaClientes = () => {
         return (
           <div key={cliente.id} className="pagina-lista-clientes_item-cliente">
             {cliente.nome}
-            <div>
+            <div className="pagina-lista-clientes_item-cliente-acoes">
               <FaPencil
                 size={20}
-                color="red"
+                color="grey"
                 onClick={() => navegarParaEdicao(cliente.id)}
                 cursor="pointer"
               />
-              <FaTrash size={20} />
+              <FaTrash
+                size={20}
+                color="red"
+                onClick={() => excluir(cliente.id)}
+              />
             </div>
           </div>
         );

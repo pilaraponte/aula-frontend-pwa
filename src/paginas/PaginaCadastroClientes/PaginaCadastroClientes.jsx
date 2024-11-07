@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import BotaoCustomizado from '../../comum/componentes/BotaoCustomizado/BotaoCustomizado';
-import Principal from '../../comum/componentes/Principal/Principal';
-import ServicoCliente from '../../comum/servicos/ServicoCliente';
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import BotaoCustomizado from "../../comum/componentes/BotaoCustomizado/BotaoCustomizado";
+import Principal from "../../comum/componentes/Principal/Principal";
+import ServicoCliente from "../../comum/servicos/ServicoCliente";
 import {
   formatarComMascara,
   MASCARA_CELULAR,
   MASCARA_CPF,
-} from '../../comum/utils/mascaras';
-import './PaginaCadastroClientes.css';
-
+} from "../../comum/utils/mascaras";
+import "./PaginaCadastroClientes.css";
+import { toast } from "react-toastify";
 
 const instanciaServicoCliente = new ServicoCliente();
 
@@ -17,16 +17,15 @@ const PaginaCadastroCliente = () => {
   const navigate = useNavigate();
   const params = useParams();
 
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [celular, setCelular] = useState('');
-  const [dataNascimento, setDataNascimento] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [celular, setCelular] = useState("");
+  const [dataNascimento, setDataNascimento] = useState("");
+  const [cpf, setCpf] = useState("");
 
   useEffect(() => {
     if (params.id) {
-      const clienteEncontrado =
-        instanciaServicoCliente.buscarPorId(params.id);
+      const clienteEncontrado = instanciaServicoCliente.buscarPorId(params.id);
       if (clienteEncontrado) {
         setNome(clienteEncontrado.nome);
         setEmail(clienteEncontrado.email);
@@ -38,6 +37,11 @@ const PaginaCadastroCliente = () => {
   }, [params.id]);
 
   const salvar = () => {
+    if (!nome || !email) {
+      toast("Preencha todos os campos obrigatórios!");
+      return;
+    }
+
     const cliente = {
       id: params.id ? +params.id : Date.now(),
       nome,
@@ -51,12 +55,12 @@ const PaginaCadastroCliente = () => {
     } else {
       instanciaServicoCliente.cadastrarCliente(cliente);
     }
-    navigate('/lista-clientes');
+    navigate("/lista-clientes");
   };
 
   return (
     <Principal
-      titulo={params.id ? 'Editar Cliente' : 'Novo Cliente'}
+      titulo={params.id ? "Editar Cliente" : "Novo Cliente"}
       voltarPara="/lista-clientes"
     >
       {params.id && (
@@ -93,12 +97,7 @@ const PaginaCadastroCliente = () => {
           placeholder="Digite o número do seu Whatsapp"
           value={celular}
           onChange={(e) =>
-            setCelular(
-              formatarComMascara(
-                e.target.value,
-                MASCARA_CELULAR
-              )
-            )
+            setCelular(formatarComMascara(e.target.value, MASCARA_CELULAR))
           }
         />
       </div>
@@ -109,9 +108,7 @@ const PaginaCadastroCliente = () => {
           type="date"
           placeholder="Digite sua data de nascimento"
           value={dataNascimento}
-          onChange={(e) =>
-            setDataNascimento(e.target.value)
-          }
+          onChange={(e) => setDataNascimento(e.target.value)}
         />
       </div>
 
@@ -122,12 +119,7 @@ const PaginaCadastroCliente = () => {
           placeholder="Digite seu CPF"
           value={cpf}
           onChange={(e) =>
-            setCpf(
-              formatarComMascara(
-                e.target.value,
-                MASCARA_CPF
-              )
-            )
+            setCpf(formatarComMascara(e.target.value, MASCARA_CPF))
           }
         />
       </div>
