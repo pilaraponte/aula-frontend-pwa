@@ -1,19 +1,19 @@
-import Principal from "../../comum/componentes/Principal/Principal";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import "./PaginaListaClientes.css";
-import { FaPencil, FaTrash } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
-import ServicoCliente from "../../comum/servicos/ServicoCliente";
+import { useEffect, useState } from 'react';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import Principal from '../../comum/componentes/Principal/Principal';
+import ServicoCliente from '../../comum/servicos/ServicoCliente';
+import './PaginaListaClientes.css';
 
-const servicoCliente = new ServicoCliente();
+const instanciaServicoCliente = new ServicoCliente();
 
 const PaginaListaClientes = () => {
   const navigate = useNavigate();
   const [listaClientes, setListaClientes] = useState([]);
 
   useEffect(() => {
-    const clientesDoLocalStorage = servicoCliente.listar();
+    const clientesDoLocalStorage =
+      instanciaServicoCliente.listar();
     setListaClientes(clientesDoLocalStorage);
   }, []);
 
@@ -22,8 +22,10 @@ const PaginaListaClientes = () => {
   };
 
   const excluir = (idCliente) => {
-    if (confirm("Tem certeza que deseja excluir?")) {
-      servicoCliente.excluirCliente(idCliente);
+    if (confirm('Tem certeza?')) {
+      const listaAtualizada =
+        instanciaServicoCliente.excluirCliente(idCliente);
+      setListaClientes(listaAtualizada);
     }
   };
 
@@ -33,17 +35,22 @@ const PaginaListaClientes = () => {
 
       {listaClientes.map((cliente) => {
         return (
-          <div key={cliente.id} className="pagina-lista-clientes_item-cliente">
+          <div
+            key={cliente.id}
+            className="pagina-lista-clientes__item-cliente"
+          >
             {cliente.nome}
-            <div className="pagina-lista-clientes_item-cliente-acoes">
-              <FaPencil
-                size={20}
-                color="grey"
-                onClick={() => navegarParaEdicao(cliente.id)}
-                cursor="pointer"
+
+            <div className="pagina-lista-clientes__item-cliente-acoes">
+              <FaEdit
+                size={24}
+                onClick={() =>
+                  navegarParaEdicao(cliente.id)
+                }
               />
+
               <FaTrash
-                size={20}
+                size={24}
                 color="red"
                 onClick={() => excluir(cliente.id)}
               />
