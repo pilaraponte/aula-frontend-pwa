@@ -6,7 +6,9 @@ const instanciaServicoAutenticacao = new ServicoAutenticacao();
 
 const VerificarAutenticacao = () => {
   const navigate = useNavigate();
-  const usuarioEstaLogado = instanciaServicoAutenticacao.usuarioEstaLogado();
+
+  const usuarioEstaLogado = instanciaServicoAutenticacao.buscarUsuarioLogado();
+
   useEffect(() => {
     if (!usuarioEstaLogado) {
       navigate("/login");

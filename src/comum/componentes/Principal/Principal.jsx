@@ -1,20 +1,29 @@
+import { FaChevronLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import Cabecalho from "../Cabecalho/Cabecalho";
 import "./Principal.css";
-import { FaCircleArrowLeft } from "react-icons/fa6";
+import Rodape from "../Rodape/Rodape";
 
 function Principal({ voltarPara, titulo, children }) {
   return (
-    <main className="principal_root">
-      {voltarPara && (
-        <Link to={voltarPara}>
-          <FaCircleArrowLeft size={24} color="purple" />
-        </Link>
-      )}
+    <>
+      <Cabecalho />
+      <main className="principal_root">
+        <div className="principal_titulo">
+          {voltarPara && (
+            <Link to={voltarPara}>
+              <FaChevronLeft size={24} color="#3f50b5" />
+            </Link>
+          )}
 
-      <h1>{titulo}</h1>
+          <h1>{titulo}</h1>
+        </div>
 
-      {children}
-    </main>
+        {children}
+      </main>
+
+      <Rodape />
+    </>
   );
 }
 

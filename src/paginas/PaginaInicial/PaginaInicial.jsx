@@ -7,13 +7,11 @@ const PaginaInicial = () => {
   const navigate = useNavigate();
 
   return (
-    <Principal titulo="Pagina Inicial">
-      <BotaoCustomizado
-        cor="primaria"
-        aoClicar={() => navigate("/lista-produtos")}
-      >
+    <Principal titulo="Página Inicial">
+      <BotaoCustomizado aoClicar={() => navigate("/lista-produtos")}>
         Lista Produtos
       </BotaoCustomizado>
+
       <BotaoCustomizado
         cor="secundaria"
         aoClicar={() => navigate("/lista-tarefas")}
@@ -23,13 +21,6 @@ const PaginaInicial = () => {
 
       <BotaoCustomizado
         cor="primaria"
-        aoClicar={() => navigate("/desafio-componentes")}
-      >
-        Desafio Componentes
-      </BotaoCustomizado>
-
-      <BotaoCustomizado
-        cor="secundaria"
         aoClicar={() => navigate("/lista-clientes")}
       >
         Lista de Clientes

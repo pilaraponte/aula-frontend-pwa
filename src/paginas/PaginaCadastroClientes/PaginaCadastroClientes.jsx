@@ -6,10 +6,12 @@ import ServicoCliente from "../../comum/servicos/ServicoCliente";
 import {
   formatarComMascara,
   MASCARA_CELULAR,
+  MASCARA_CEP,
   MASCARA_CPF,
 } from "../../comum/utils/mascaras";
 import "./PaginaCadastroClientes.css";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const instanciaServicoCliente = new ServicoCliente();
 
@@ -22,6 +24,12 @@ const PaginaCadastroCliente = () => {
   const [celular, setCelular] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [cpf, setCpf] = useState("");
+
+  const [cep, setCep] = useState("");
+  const [rua, setRua] = useState("");
+  const [numero, setNumero] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [cidade, setCidade] = useState("");
 
   useEffect(() => {
     if (params.id) {
@@ -56,6 +64,24 @@ const PaginaCadastroCliente = () => {
       instanciaServicoCliente.cadastrarCliente(cliente);
     }
     navigate("/lista-clientes");
+  };
+
+  const buscarCep = async (event) => {
+    try {
+      console.log(event.target.value);
+      const resp = await axios.get(
+        `https://brasilapi.com.br/api/cep/v2/${event.target.value}`
+      );
+      console.log(resp.data);
+      setRua(resp.data.street);
+      setBairro(resp.data.neighborhood);
+      setCidade(resp.data.city);
+      if (resp.data.street) {
+        document.getElementById("campoNumero").focus();
+      }
+    } catch {
+      toast.error("CEP não encontrado.");
+    }
   };
 
   return (
@@ -121,6 +147,58 @@ const PaginaCadastroCliente = () => {
           onChange={(e) =>
             setCpf(formatarComMascara(e.target.value, MASCARA_CPF))
           }
+        />
+      </div>
+      <div className="campo">
+        <label>CEP</label>
+        <input
+          type="tel"
+          placeholder="Digite seu CEP"
+          value={cep}
+          onChange={(e) =>
+            setCep(formatarComMascara(e.target.value, MASCARA_CEP))
+          }
+          onBlur={buscarCep}
+        />
+      </div>
+      <div className="campo">
+        <label>RUA</label>
+        <input
+          type="text"
+          placeholder="Digite sua Rua"
+          value={rua}
+          onChange={(e) => setRua(formatarComMascara(e.target.value))}
+          maxLength={100}
+        />
+      </div>
+      <div className="campo">
+        <label>NUMERO</label>
+        <input
+          type="text"
+          placeholder="Digite o número"
+          value={numero}
+          onChange={(e) => setNumero(formatarComMascara(e.target.value))}
+          maxLength={100}
+        />
+      </div>
+      <div className="campo">
+        <label>BAIRRO</label>
+        <input
+          type="text"
+          placeholder="Digite o Bairro"
+          value={bairro}
+          onChange={(e) => setBairro(formatarComMascara(e.target.value))}
+          maxLength={100}
+        />
+      </div>
+      <div className="campo">
+        <label>CIDADE</label>
+        <input
+          type="text"
+          placeholder="Digite a Cidade"
+          value={cidade}
+          onChange={(e) => setCidade(formatarComMascara(e.target.value))}
+          maxLength={100}
         />
       </div>
       <BotaoCustomizado cor="secundaria" aoClicar={salvar}>
